@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TicketController;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
@@ -16,4 +17,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/tickets', [TicketController::class, 'index']);
     Route::get('/tickets/{code}', [TicketController::class, 'show']);
     Route::post('/create-ticket-reply/{code}', [TicketController::class, 'storeTicketReply']);
+    Route::get('/dashboard/statistic', [DashboardController::class, 'getStatistic']);
 });
